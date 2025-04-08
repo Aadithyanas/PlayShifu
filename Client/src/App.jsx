@@ -70,28 +70,27 @@ function App() {
   return (
     <Router>
       <CartProvider>
-        <div className="bg-gray-50">
-          <ScollingNav />
-          <SecondNav />
-          <NavThree />
-
+        <div className=" bg-gray-50">
+          <ScollingNav/>
+          <SecondNav/>
+          <NavThree/>
+       
           <Routes>
             <Route path="/" element={
               <>
                 <ProductDetails product={heroProduct} />
-                <ProdcutGuide />
-                <JuniorPack />
-                <IntheBox />
-                <GameCard />
-                <DeviceCompatibility />
+                <ProdcutGuide/>
+                <JuniorPack/>
+                <IntheBox/>
+                <GameCard/>
+                <DeviceCompatibility/>
                 <ProductList products={otherProducts} />
-                
               </>
             } />
             <Route path="/cart" element={<CartPage />} />
           </Routes>
         </div>
-        <Footer />
+        <Footer/>
       </CartProvider>
     </Router>
   );

@@ -34,10 +34,10 @@ const CartPage = () => {
       <div className="space-y-4">
         {cart.map((item) => (
           <div key={item.id} className="flex items-center gap-4 bg-white p-4 rounded-lg shadow">
-            <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded" />
+            <img src={item.imageUrl} alt={item.name} className="w-24 h-24 object-cover rounded" />
             <div className="flex-grow">
-              <h3 className="font-semibold">{item.title}</h3>
-              <p className="text-gray-600">₹{item.price}</p>
+              <h3 className="font-semibold">{item.name}</h3>
+              <p className="text-gray-600">₹{item.price.discounted}</p>
             </div>
             <div className="flex items-center gap-2">
               <button
