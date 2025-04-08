@@ -15,6 +15,7 @@ import JuniorPack from './components/JuniorPack';
 import IntheBox from './components/IntheBox';
 import GameCard from './components/GameCard';
 import DeviceCompatibility from './components/DeviceCompatibility';
+import { Toaster } from 'react-hot-toast';
 
 // ... other imports remain the same
 
@@ -68,7 +69,9 @@ function App() {
   const otherProducts = products.filter(product => product.id !== "PLG001");
 
   return (
+
     <Router>
+       <Toaster position="top-right" reverseOrder={false} />
       <CartProvider>
         <div className=" bg-gray-50">
           <ScollingNav/>

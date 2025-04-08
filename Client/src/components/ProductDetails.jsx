@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
 const ProductDetails = ({ product }) => {
   const { addToCart } = useCart();
@@ -10,6 +11,10 @@ const ProductDetails = ({ product }) => {
   // Format currency with rupee symbol
   const formatPrice = (price) => {
     return `₹${price.toLocaleString('en-IN')}`;
+  };
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
   };
 
   return (
@@ -121,7 +126,7 @@ const ProductDetails = ({ product }) => {
           <div className="mt-auto">
             {/* Add to cart button */}
             <button
-              onClick={() => addToCart(product)}
+              onClick={handleAddToCart}
               className="w-full bg-purple-800 text-white py-3 px-6 rounded-lg hover:bg-purple-900 transition-colors"
             >
               Add To Cart

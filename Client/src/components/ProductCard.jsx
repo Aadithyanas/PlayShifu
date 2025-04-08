@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -9,6 +10,11 @@ const ProductCard = ({ product }) => {
     currency: 'INR',
     maximumFractionDigits: 0,
   }).format(product?.price?.discounted || 0);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
 
   return (
     <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4 mr-4 mx-auto">
@@ -29,7 +35,7 @@ const ProductCard = ({ product }) => {
       </h3>
       <p className="mt-2 text-gray-600 font-medium">{formattedPrice}</p>
       <button 
-        onClick={() => addToCart(product)}
+        onClick={handleAddToCart}
         className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
       >
         Add to Cart
